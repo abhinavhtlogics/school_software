@@ -205,7 +205,7 @@ HaderPart end
               </div>
               <div className="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                 <ol className="breadcrumb">
-                  <li><a href="/section_list" className="btn bg-blue-soft text-blue"><i className="fa fa-angle-double-left" /> Back to Section List</a></li>
+                  <li><a href="/subject_list" className="btn bg-blue-soft text-blue"><i className="fa fa-angle-double-left" /> Back to Section List</a></li>
                 </ol>
               </div>
             </div>

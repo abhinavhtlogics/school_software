@@ -8,7 +8,7 @@ import Copyright from "../basic/Copyright";
 import Preloader from "../basic/Preloader";
 import HeaderPart from "../layout/HeaderPart";
 
-class SectionList extends Component {
+class SubjectList extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,7 +17,7 @@ class SectionList extends Component {
       messgae:'',
       remark:'',
       courseName:'',
-      courseList:[]
+      subjectList:[]
      
     };
    
@@ -32,14 +32,14 @@ class SectionList extends Component {
  
    
 
-    axios.get(`http://127.0.0.1:8000/api/section_list`)  
+    axios.get(`http://127.0.0.1:8000/api/subject_list`)  
     .then(res => {  
      console.log(res.data);
      if(res.data.status == true){
-        this.setState({ courseList:res.data.data});
+        this.setState({ subjectList:res.data.data});
         //window.location.href = "http://127.0.0.1:8000/users";
 
-        console.log(this.state.courseList);
+       // console.log(this.state.courseList);
      }
     
     
@@ -95,12 +95,12 @@ HaderPart end
               <div className="row page-titles mx-0">
                 <div className="col-sm-6 p-md-0">
                   <div className="welcome-text">
-                    <h4>Section List</h4>
+                    <h4>Subject List</h4>
                   </div>
                 </div>
                 <div className="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                   <ol className="breadcrumb breadcrumb-btn">
-                    <li><a href="/section_add" className="btn bg-blue-soft text-blue"><i className="fa fa-user-plus" /> Add New Section</a></li>
+                    <li><a href="/subject_add" className="btn bg-blue-soft text-blue"><i className="fa fa-user-plus" /> Add New Subject</a></li>
                   </ol>
                 </div>
               </div>
@@ -114,25 +114,23 @@ HaderPart end
                         <table className="table table-bordered table-striped verticle-middle table-responsive-sm" id="example">
                           <thead>
                             <tr>
-                            <th scope="col">Course Name</th>
-                            <th scope="col">Class Name</th>
-                              <th scope="col">Section Name</th>
-                              <th scope="col">Status</th>
+                            <th scope="col">Subject Name</th>
+                           
+                              <th scope="col">Remark</th>
+                              <th scope="col">Short Code</th>
                               <th scope="col">Actions</th>
                             </tr>
                           </thead>
                           <tbody>
                            
-                            {this.state.courseList.map( (item, key) => {
+                            {this.state.subjectList.map( (item, key) => {
                                 return (
                             <tr>
-                                 <td>{item.courseName} </td>
-                                 <td>{item.className} </td>
-                              <td>{item.sectionName}  </td>
-                              <td>{item.status == 1 && <span class="badge bg-green-soft text-green">Enable</span> }
-                              {item.status == 0 && <span class="badge bg-red-soft text-red">Disable</span> }
-                               </td>
-                              <td><a className="btn" href={`/section_edit/${item.sectionId}`}><i className="fa fa-edit" aria-hidden="true" /></a>
+                              
+                                 <td>{item.subjectName} </td>
+                              <td>{item.Remark}  </td>
+                              <td>{item.shortCode}  </td>
+                              <td><a className="btn" href={`/subject_edit/${item.subjectId}`}><i className="fa fa-edit" aria-hidden="true" /></a>
                                 <a className="btn" href="#"><i className="fa fa-trash" aria-hidden="true" /></a></td>
                             </tr>
                             )
@@ -173,4 +171,4 @@ Main wrapper end
   }
 }
 
-export default SectionList;
+export default SubjectList;

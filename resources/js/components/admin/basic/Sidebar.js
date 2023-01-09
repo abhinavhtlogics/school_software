@@ -45,12 +45,12 @@ class Sidebar extends Component {
               <ul aria-expanded="false">
                 <li><a className="has-arrow"  aria-expanded="false"><i className="fa fa-files-o" /> Master</a>
                   <ul aria-expanded="false">
-                    <li><a href="/course_add">Course Master</a></li>
+                    <li><a href="/course_list">Course Master</a></li>
                     <li><a href="#">Class Master</a></li>
                     <li><a href="/section_list">Section Master</a></li>
                     <li><a className="has-arrow"  aria-expanded="false">Subject Master</a>
                       <ul aria-expanded="false">
-                        <li><a href="#">Subjects</a></li>
+                        <li><a href="./subject_list">Subjects</a></li>
                         <li><a href="./class-wise-subjects-list.html">Assign Class-wise Subjects</a></li>
                       </ul>
                     </li>

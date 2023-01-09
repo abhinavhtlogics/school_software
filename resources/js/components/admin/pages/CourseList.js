@@ -124,7 +124,7 @@ HaderPart end
                                 return (
                             <tr>
                               <td>{item.courseName} </td>
-                              <td><a className="btn" href="./course-edit.html"><i className="fa fa-edit" aria-hidden="true" /></a>
+                              <td><a className="btn" href={`/course_edit/${item.courseId}`}><i className="fa fa-edit" aria-hidden="true" /></a>
                                 <a className="btn" href="#"><i className="fa fa-trash" aria-hidden="true" /></a></td>
                             </tr>
                             )

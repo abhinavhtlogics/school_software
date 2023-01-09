@@ -11,8 +11,22 @@ use DB;
 use Illuminate\Http\Request;
 
 
-class CourseController extends Controller
+class FeeCategoryController extends Controller
 {
+
+    public function feecat_list(){
+        $data=array();
+        $data= DB::table('feecategorymaster')
+         ->select('*')
+         ->get();
+
+         if(count($data) > 0){
+             return ['status'=>True, 'data'=> $data];
+         }
+         else{
+             return ['status'=>False, 'data'=>$data];
+         }
+    }
     
     public function add_course_process(Request $req){
        
@@ -39,24 +53,7 @@ class CourseController extends Controller
 
 
 
-    public function course_list(){
-        $data=array();
-        $data= DB::table('course_master')
-         ->select('*')
-         ->get();
- 
-        
-      
-        // echo count($data);
- 
-         if(count($data) > 0){
-             return ['status'=>True, 'data'=> $data];
-         }
-         else{
-             return ['status'=>False, 'data'=>$data];
-         }
-    }
-
+    
     public function course_list_id($id){
         $data=array();
         $data= DB::table('course_master')
@@ -74,8 +71,7 @@ class CourseController extends Controller
              return ['status'=>False, 'data'=>$data];
          }
     }
-
-
+   
     public function update_course_process(Request $req){
        
         $courseName =   $req->input('courseName');
@@ -103,4 +99,5 @@ class CourseController extends Controller
         }
 
     }
+
 }

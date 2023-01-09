@@ -74,6 +74,8 @@ class SectionController extends Controller
     public function section_list(){
         $data=array();
         $data= DB::table('section_master')
+        ->join('course_master', 'section_master.courseId', '=', 'course_master.courseId')
+        ->join('class_master', 'section_master.classId', '=', 'class_master.classId')
          ->select('*')
          ->get();
  
@@ -94,6 +96,28 @@ class SectionController extends Controller
         $data= DB::table('section_master')
          ->select('*')
          ->where('sectionId',$id)
+         ->get();
+ 
+        
+      
+        // echo count($data);
+ 
+         if(count($data) > 0){
+             return ['status'=>True, 'data'=> $data];
+         }
+         else{
+             return ['status'=>False, 'data'=>$data];
+         }
+    }
+
+
+
+       public function section_list_by_course_class($course_id,$class_id){
+        $data=array();
+        $data= DB::table('section_master')
+         ->select('*')
+         ->where('courseId',$course_id)
+         ->where('classId',$class_id)
          ->get();
  
         

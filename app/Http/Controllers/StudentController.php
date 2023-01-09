@@ -11,27 +11,44 @@ use DB;
 use Illuminate\Http\Request;
 
 
-class CourseController extends Controller
+class StudentController extends Controller
 {
     
-    public function add_course_process(Request $req){
+    public function add_student_process(Request $req){
+
+       $validator= $this->validate($req, [ 'studentName' => 'required|min:2' ]);
+        if ($validator->fails())
+    {
+        return response()->json(['errors'=>$validator->errors()->all(),'status_code'=>422]);
+         }
        
-        $courseName=$req->input('courseName');
-        $remark=$req->input('remark');
+        $studentName=$req->input('studentName');
+        $email=$req->input('email');
+        $bloodGroup=$req->input('bloodGroup');
+        $mobile=$req->input('mobile');
+        $aadhar=$req->input('aadhar');
+        $perm_addr=$req->input('perm_addr');
+        $temp_addr=$req->input('temp_addr');
+        $pincode=$req->input('pincode');
+        $accountNo=$req->input('accountNo');
+        $ifsc=$req->input('ifsc');
+        $branch_addr=$req->input('branch_addr');
+
+       
         // echo $userId;
         // echo $password;
-        $values = array('courseName' => ucfirst($courseName),'remark' => $remark);
+        $values = array('studentName' => ucfirst($studentName),'s_email'=>$email,'s_mobile'=>$mobile);
         
 
        
      
        // echo count($data);
 
-        if( DB::table('course_master')->insert($values)){
-            return ['status'=>True, 'message'=>'Course Added'];
+        if( DB::table('student_master')->insert($values)){
+            return ['status'=>True, 'message'=>'Student Added'];
         }
         else{
-            return ['status'=>False, 'message'=>'Course Not Added'];
+            return ['status'=>False, 'message'=>'Student Not Added'];
         }
        // echo "<br>";
         

@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@gumgum/react-script-tag": "^0.0.3",
-        "react-router-dom": "^6.5.0"
+        "react-router-dom": "^6.5.0",
+        "sweetalert2": "^11.6.16"
     }
 }
