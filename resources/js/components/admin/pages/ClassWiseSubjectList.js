@@ -100,7 +100,7 @@ HaderPart end
             </div>
             <div className="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
               <ol className="breadcrumb breadcrumb-btn">
-                <li><a href="./class-wise-subjects-create.html" className="btn bg-blue-soft text-blue"><i className="fa fa-user-plus" /> Add Class Wise Subjects</a></li>
+                <li><a href="./class_wise_subject_add" className="btn bg-blue-soft text-blue"><i className="fa fa-user-plus" /> Add Class Wise Subjects</a></li>
               </ol>
             </div>
           </div>
@@ -137,7 +137,7 @@ HaderPart end
                             <span className="badge bg-red-soft text-red">Science</span>
                             <span className="badge bg-red-soft text-red">Social Science</span>
                           </td>
-                          <td><a className="btn" href="./edit-user.html"><i className="fa fa-edit" aria-hidden="true" /></a>
+                          <td><a className="btn" href={`/class_wise_subject_edit/${item.id}`}><i className="fa fa-edit" aria-hidden="true" /></a>
                             <a className="btn" href="#"><i className="fa fa-trash" aria-hidden="true" /></a></td>
                         </tr>
                        )

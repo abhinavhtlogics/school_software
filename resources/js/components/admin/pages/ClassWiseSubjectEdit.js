@@ -8,7 +8,7 @@ import Copyright from "../basic/Copyright";
 import Preloader from "../basic/Preloader";
 import HeaderPart from "../layout/HeaderPart";
 
-class ClassWiseSubjectAdd extends Component {
+class ClassWiseSubjectEdit extends Component {
   constructor() {
     super();
     this.state = {
@@ -38,7 +38,9 @@ class ClassWiseSubjectAdd extends Component {
       section_arr:[],
       showMidSec:false,
       showEnd:false,
-      na:false
+      na:false,
+      tempSectionId:'',
+      subjectChecked:[]
     };
     this.formSubmit = this.formSubmit.bind(this);
     this.subAdd = this.subAdd.bind(this);
@@ -51,6 +53,9 @@ class ClassWiseSubjectAdd extends Component {
     this.handleSubAdditional = this.handleSubAdditional.bind(this);
     this.handleSubPriority = this.handleSubPriority.bind(this);
     this.selectAll = this.selectAll.bind(this);
+    this.getClasslist_load = this.getClasslist_load.bind(this);
+    this.getSectionlistLoad = this.getSectionlistLoad.bind(this);
+    this.getSubject_load=this.getSubject_load.bind(this);
   
   
   }
@@ -120,6 +125,35 @@ class ClassWiseSubjectAdd extends Component {
       }
 
 
+      getSectionlistLoad(event){
+        axios.get(`http://127.0.0.1:8000/api/section_list_by_course_class/${this.state.courseId}/${this.state.classId}`)  
+        .then(res => {  
+         console.log(res.data);
+         if(res.data.status == true){
+            this.setState({ sectionList:res.data.data,showMidSec:true,na:false});
+            //window.location.href = "http://127.0.0.1:8000/users";
+      
+            console.log(this.state.classList);
+         }else{
+          this.setState({ sectionList:res.data.data,showMidSec:true,na:true});
+         }
+        
+         
+         for (let i = 0; i < res.data.data.length; i++) {
+            if(res.data.data[i].sectionId == this.state.tempSectionId){
+                this.state.sectionListVal[i] = true;
+            }
+            else{
+                this.state.sectionListVal[i] = false;
+            }
+          
+      } 
+        
+        })  
+      }
+
+
+
       sectionAdd(event){
         console.log(event);
         var checked = event.target.checked;
@@ -173,6 +207,102 @@ class ClassWiseSubjectAdd extends Component {
       console.log();
 
       
+      }
+
+      getClasslist_load(event){
+        axios.get(`http://127.0.0.1:8000/api/class_list_by_id/${this.state.courseId}`)  
+        .then(res => {  
+         console.log(res.data);
+         if(res.data.status == true){
+            this.setState({ classList:res.data.data});
+            //window.location.href = "http://127.0.0.1:8000/users";
+
+          
+      
+            console.log(this.state.classList);
+    
+            
+         }
+        
+        
+        })  
+      }
+
+      getSubject_load(event){
+        const cid = window.location.href.split('/')[4];
+        axios.get(`http://127.0.0.1:8000/api/class_wise_sub_desc_id/${cid}`)  
+        .then(res => {  
+         console.log(res.data);
+         if(res.data.status == true){
+
+
+            console.log("legth");
+            console.log(res.data.data.length);
+            var newArray = this.state.subject_arr.slice();
+            var newArray2 = this.state.compulsary_arr_bool.slice(); 
+            var newArray3 = this.state.elective_arr_bool.slice(); 
+            var newArray4 = this.state.additional_arr_bool.slice(); 
+            var newArray5 = this.state.subjectChecked.slice(); 
+           
+            for (let j = 0; j < this.state.subjectList.length; j++) {
+                newArray5.push(false); 
+                
+            }
+            this.setState({subjectChecked:newArray5})
+            for (let i = 0; i < res.data.data.length; i++) {
+
+                console.log(res.data.data[i].compulsary);
+                var index = this.state.subjectList.indexOf(res.data.data[i].subjectName)
+                this.state.subjectChecked[index]=true;
+                newArray.push(res.data.data[i].subjectName); 
+                if(res.data.data[i].compulsary == 1){
+                   
+                    newArray2.push(true); 
+                } 
+                else{
+                    
+                    newArray2.push(false); 
+                }
+
+
+                if(res.data.data[i].elective == 1){
+                   
+                    newArray3.push(true); 
+                } 
+                else{
+                    
+                    newArray3.push(false); 
+                }
+
+                if(res.data.data[i].addition == 1){
+                   
+                    newArray4.push(true); 
+                } 
+                else{
+                    
+                    newArray4.push(false); 
+                }
+                console.log(newArray2);
+                
+            }
+            console.log(newArray2);
+            this.setState({subject_arr:newArray})
+            this.setState({compulsary_arr_bool:newArray2})
+            this.setState({elective_arr_bool:newArray3})
+            this.setState({additional_arr_bool:newArray2})
+            console.log(this.state.compulsary_arr_boo4);
+
+          
+    
+            //window.location.href = "http://127.0.0.1:8000/users";
+      
+            console.log(this.state.compulsary_arr);
+    
+            
+         }
+        
+        
+        })  
       }
 
       stateChange(){
@@ -478,7 +608,7 @@ this.setState({showEnd:true})
      console.log(res.data);
      if(res.data.status == true){
         this.setState({ showError: false,showSuccess:true,message:res.data.message});
-       window.location.href = "http://127.0.0.1:8000/class_wise_subject_list";
+       window.location.href = "http://127.0.0.1:8000/subject_list";
      }
     
      if(res.data.status == false){
@@ -504,8 +634,22 @@ componentDidMount() {
      }
     
     
-    })  
+    })   
 
+    const cid = window.location.href.split('/')[4];
+        // console.log("hello"+ cid);
+
+        axios.get(`http://127.0.0.1:8000/api/class_wise_sub_list_id/${cid}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.status == true) {
+                    this.setState({ courseId: res.data.data[0].courseId },this.getClasslist_load);
+                    this.setState({ classId: res.data.data[0].classId,tempSectionId:res.data.data[0].sectionId },this.getSectionlistLoad);
+                    this.setState({ showMidSec:true,showEnd:true },this.getSubject_load);
+                }
+            })
+
+        
 
 
     axios.get(`http://127.0.0.1:8000/api/subject_list/`)  
@@ -521,6 +665,7 @@ componentDidMount() {
     
     })  
 
+  
 
 
   
@@ -573,7 +718,7 @@ HaderPart end
             <div className="row page-titles mx-0">
               <div className="col-sm-6 p-md-0">
                 <div className="welcome-text">
-                  <h4>Add Class Wise Subject</h4>
+                  <h4>Edit Class Wise Subject</h4>
                 </div>
               </div>
               <div className="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
@@ -666,7 +811,7 @@ HaderPart end
                                 return (
               <div className="form-check form-checkbox col-md-3">
                 <div className="bg-padd">
-                  <input type="checkbox" className="form-check-input" id="check1" data={item.subjectId} data-index={key} value={item.subjectName} onClick={this.subAdd} />
+                  <input type="checkbox" className="form-check-input" checked={this.state.subjectChecked[key]} id="check1" data={item.subjectId} data-index={key} value={item.subjectName} onClick={this.subAdd} />
                   <label className="form-check-label" htmlFor="check1">{item.subjectName}</label>
                 </div>
               </div>
@@ -718,8 +863,6 @@ HaderPart end
         </div>
         {/*/ form-row */}
         <br/>
-        <br/>
-       
         {this.state.showEnd ? 
         <input type="submit" className="btn btn-primary" defaultValue="Save" onClick={this.formSubmit} />
        
@@ -747,9 +890,6 @@ HaderPart end
 				
             </div>
         </div>
-        </div>
-</div>
-</div>
         {/***********************************
           Content body end
     
@@ -771,9 +911,11 @@ HaderPart end
 Main wrapper end
 ************************************/}
 </div>
-
+</div>
+</div>
+</div>
     );
   }
 }
 
-export default ClassWiseSubjectAdd;
+export default ClassWiseSubjectEdit;

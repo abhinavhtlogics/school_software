@@ -16,6 +16,7 @@ import SectionList from './admin/pages/SectionList';
 import Dashboard from './admin/pages/Dashboard';
 import CourseEdit from './admin/pages/CourseEdit';
 import ClassWiseSubjectAdd from './admin/pages/ClassWiseSubjectAdd';
+import ClassWiseSubjectEdit from './admin/pages/ClassWiseSubjectEdit';
 
 import StationList from './admin/pages/StationList';		
 import AddStation from "./admin/pages/AddStation";  
@@ -51,6 +52,7 @@ function Hello() {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="/course_edit/:id" element={<CourseEdit />} exact />
         <Route path="class_wise_subject_add" element={<ClassWiseSubjectAdd />} />
+        <Route path="class_wise_subject_edit/:id" element={<ClassWiseSubjectEdit />} />
         <Route path="station_list" element={<StationList />} />
 		<Route path="station_add"  element={<AddStation/>} />  
 		<Route path="station_edit/:id"  element={<EditStation/>} />  	 		    

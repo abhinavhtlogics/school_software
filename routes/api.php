@@ -65,4 +65,6 @@ Route::get('/route/getstations', [RouteController::class, 'getStations']);
 
 
 Route::get("class_wise_subject",[ClassWiseSubjectController::class,'class_wise_subject_list']);
-		 
+Route::get("class_wise_sub_list_id/{id}",[ClassWiseSubjectController::class,'class_wise_sub_list_id']);
+
+Route::get("class_wise_sub_desc_id/{id}",[ClassWiseSubjectController::class,'class_wise_sub_desc_id']);

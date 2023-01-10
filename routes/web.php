@@ -74,6 +74,9 @@ Route::get('/class_wise_subject_add', function () {
     return view('class_wise_subject_add');
 });
 
+Route::get('/class_wise_subject_edit/{id}', function () {
+    return view('class_wise_subject_edit');
+});
 
 
 Route::get('/station_list', function () {

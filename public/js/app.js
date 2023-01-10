@@ -6396,12 +6396,12 @@ var Sidebar = /*#__PURE__*/function (_Component) {
                         "aria-expanded": "false",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                            href: "./subject_list",
+                            href: "subject_list",
                             children: "Subjects"
                           })
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-                            href: "./class-wise-subjects-list.html",
+                            href: "./class_wise_subject_list",
                             children: "Assign Class-wise Subjects"
                           })
                         })]
@@ -8804,7 +8804,7 @@ var ClassWiseSubjectAdd = /*#__PURE__*/function (_Component) {
               showSuccess: true,
               message: res.data.message
             });
-            window.location.href = "http://127.0.0.1:8000/subject_list";
+            window.location.href = "http://127.0.0.1:8000/class_wise_subject_list";
           }
           if (res.data.status == false) {
             _this4.setState({
@@ -8859,7 +8859,7 @@ var ClassWiseSubjectAdd = /*#__PURE__*/function (_Component) {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                     className: "welcome-text",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                      children: "Add Subject"
+                      children: "Add Class Wise Subject"
                     })
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -8868,18 +8868,18 @@ var ClassWiseSubjectAdd = /*#__PURE__*/function (_Component) {
                     className: "breadcrumb",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
-                        href: "/section_list",
+                        href: "/class_wise_subject_list",
                         className: "btn bg-blue-soft text-blue",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                           className: "fa fa-angle-double-left"
-                        }), " Back to Section List"]
+                        }), " Back to Class Wise Subject List"]
                       })
                     })
                   })
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "row",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: "col-xl-12 col-xxl-12",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                     className: "card",
@@ -9099,12 +9099,949 @@ var ClassWiseSubjectAdd = /*#__PURE__*/function (_Component) {
                                     })
                                   })
                                 }) : null]
-                              }), this.state.showEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), this.state.showEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                                 type: "submit",
                                 className: "btn btn-primary",
                                 defaultValue: "Save",
                                 onClick: this.formSubmit
-                              }) : null]
+                              }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                className: "text-center",
+                                children: [this.state.showError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                  className: "error",
+                                  children: this.state.message
+                                }) : null, this.state.showSuccess ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                  className: "success",
+                                  children: this.state.message
+                                }) : null]
+                              })]
+                            })]
+                          })
+                        })
+                      })
+                    })
+                  })
+                })
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_basic_Copyright__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+        })]
+      });
+    }
+  }]);
+  return ClassWiseSubjectAdd;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClassWiseSubjectAdd);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/pages/ClassWiseSubjectEdit.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/admin/pages/ClassWiseSubjectEdit.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _basic_Copyright__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../basic/Copyright */ "./resources/js/components/admin/basic/Copyright.js");
+/* harmony import */ var _basic_Preloader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../basic/Preloader */ "./resources/js/components/admin/basic/Preloader.js");
+/* harmony import */ var _layout_HeaderPart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout/HeaderPart */ "./resources/js/components/admin/layout/HeaderPart.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+var ClassWiseSubjectEdit = /*#__PURE__*/function (_Component) {
+  _inherits(ClassWiseSubjectEdit, _Component);
+  var _super = _createSuper(ClassWiseSubjectEdit);
+  function ClassWiseSubjectEdit() {
+    var _this;
+    _classCallCheck(this, ClassWiseSubjectEdit);
+    _this = _super.call(this);
+    _this.state = {
+      showError: false,
+      showSuccess: false,
+      courseList: [],
+      classList: [],
+      subjectList: [],
+      sectionList: [],
+      sectionListVal: [],
+      courseId: '',
+      classId: '',
+      messgae: '',
+      subjectName: '',
+      status: 1,
+      shortCode: '',
+      remark: '',
+      subject_arr: [],
+      subjectId_arr: [],
+      compulsary_arr: [],
+      compulsary_arr_bool: [],
+      additional_arr: [],
+      additional_arr_bool: [],
+      priority_arr: [],
+      elective_arr: [],
+      elective_arr_bool: [],
+      section_arr: [],
+      showMidSec: false,
+      showEnd: false,
+      na: false,
+      tempSectionId: '',
+      subjectChecked: []
+    };
+    _this.formSubmit = _this.formSubmit.bind(_assertThisInitialized(_this));
+    _this.subAdd = _this.subAdd.bind(_assertThisInitialized(_this));
+    _this.sectionAdd = _this.sectionAdd.bind(_assertThisInitialized(_this));
+    _this.handleAdd = _this.handleAdd.bind(_assertThisInitialized(_this));
+    _this.handleChangeEvent = _this.handleChangeEvent.bind(_assertThisInitialized(_this));
+    _this.getClasslist = _this.getClasslist.bind(_assertThisInitialized(_this));
+    _this.handleSubChange = _this.handleSubChange.bind(_assertThisInitialized(_this));
+    _this.handleSubElective = _this.handleSubElective.bind(_assertThisInitialized(_this));
+    _this.handleSubAdditional = _this.handleSubAdditional.bind(_assertThisInitialized(_this));
+    _this.handleSubPriority = _this.handleSubPriority.bind(_assertThisInitialized(_this));
+    _this.selectAll = _this.selectAll.bind(_assertThisInitialized(_this));
+    _this.getClasslist_load = _this.getClasslist_load.bind(_assertThisInitialized(_this));
+    _this.getSectionlistLoad = _this.getSectionlistLoad.bind(_assertThisInitialized(_this));
+    _this.getSubject_load = _this.getSubject_load.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+  _createClass(ClassWiseSubjectEdit, [{
+    key: "handleChangeEvent",
+    value: function handleChangeEvent(event) {
+      event.preventDefault();
+      console.log("gdtyy");
+      console.log(event.target);
+      if (event.target.name == 'courseId') {
+        this.setState(_defineProperty({}, event.target.name, event.target.value), this.getClasslist);
+      } else if (event.target.name == 'classId') {
+        this.setState(_defineProperty({}, event.target.name, event.target.value), this.getSectionlist);
+      } else {
+        this.setState(_defineProperty({}, event.target.name, event.target.value));
+      }
+      console.log(this.state.courseId);
+    }
+  }, {
+    key: "handleAdd",
+    value: function handleAdd() {
+      this.setState({
+        showEnd: true
+      });
+    }
+  }, {
+    key: "getClasslist",
+    value: function getClasslist(event) {
+      var _this2 = this;
+      axios.get("http://127.0.0.1:8000/api/class_list_by_id/".concat(this.state.courseId)).then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this2.setState({
+            classList: res.data.data
+          });
+          //window.location.href = "http://127.0.0.1:8000/users";
+
+          console.log(_this2.state.classList);
+        }
+      });
+    }
+  }, {
+    key: "getSectionlist",
+    value: function getSectionlist(event) {
+      var _this3 = this;
+      axios.get("http://127.0.0.1:8000/api/section_list_by_course_class/".concat(this.state.courseId, "/").concat(this.state.classId)).then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this3.setState({
+            sectionList: res.data.data,
+            showMidSec: true,
+            na: false
+          });
+          //window.location.href = "http://127.0.0.1:8000/users";
+
+          console.log(_this3.state.classList);
+        } else {
+          _this3.setState({
+            sectionList: res.data.data,
+            showMidSec: true,
+            na: true
+          });
+        }
+        for (var i = 0; i < res.data.data.length; i++) {
+          _this3.state.sectionListVal[i] = false;
+        }
+      });
+    }
+  }, {
+    key: "getSectionlistLoad",
+    value: function getSectionlistLoad(event) {
+      var _this4 = this;
+      axios.get("http://127.0.0.1:8000/api/section_list_by_course_class/".concat(this.state.courseId, "/").concat(this.state.classId)).then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this4.setState({
+            sectionList: res.data.data,
+            showMidSec: true,
+            na: false
+          });
+          //window.location.href = "http://127.0.0.1:8000/users";
+
+          console.log(_this4.state.classList);
+        } else {
+          _this4.setState({
+            sectionList: res.data.data,
+            showMidSec: true,
+            na: true
+          });
+        }
+        for (var i = 0; i < res.data.data.length; i++) {
+          if (res.data.data[i].sectionId == _this4.state.tempSectionId) {
+            _this4.state.sectionListVal[i] = true;
+          } else {
+            _this4.state.sectionListVal[i] = false;
+          }
+        }
+      });
+    }
+  }, {
+    key: "sectionAdd",
+    value: function sectionAdd(event) {
+      console.log(event);
+      var checked = event.target.checked;
+      console.log(checked);
+      var index = event.target.attributes.getNamedItem('data-index').value;
+      console.log(index);
+      if (event.target.checked) {
+        var newArray = this.state.section_arr.slice();
+        newArray.push(event.target.value);
+        this.setState({
+          section_arr: newArray
+        });
+        this.state.sectionListVal[index] = true;
+        console.log(this.state.section_arr);
+      } else {
+        var newArray2 = _toConsumableArray(this.state.section_arr); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray2.splice(index, 1);
+          this.setState({
+            section_arr: newArray2
+          });
+        }
+        this.state.sectionListVal[index] = false;
+        console.log(this.state.section_arr);
+      }
+    }
+  }, {
+    key: "selectAll",
+    value: function selectAll(event) {
+      console.log('testing');
+      console.log(event.target.checked);
+      var len = document.getElementsByClassName("testing").length;
+      for (var i = 0; i < len; i++) {
+        if (event.target.checked) {
+          if (!document.getElementsByClassName("testing")[i].checked) {
+            document.getElementsByClassName("testing")[i].click();
+          }
+        } else {
+          if (document.getElementsByClassName("testing")[i].checked) {
+            document.getElementsByClassName("testing")[i].click();
+          }
+        }
+      }
+      console.log();
+    }
+  }, {
+    key: "getClasslist_load",
+    value: function getClasslist_load(event) {
+      var _this5 = this;
+      axios.get("http://127.0.0.1:8000/api/class_list_by_id/".concat(this.state.courseId)).then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this5.setState({
+            classList: res.data.data
+          });
+          //window.location.href = "http://127.0.0.1:8000/users";
+
+          console.log(_this5.state.classList);
+        }
+      });
+    }
+  }, {
+    key: "getSubject_load",
+    value: function getSubject_load(event) {
+      var _this6 = this;
+      var cid = window.location.href.split('/')[4];
+      axios.get("http://127.0.0.1:8000/api/class_wise_sub_desc_id/".concat(cid)).then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          console.log("legth");
+          console.log(res.data.data.length);
+          var newArray = _this6.state.subject_arr.slice();
+          var newArray2 = _this6.state.compulsary_arr_bool.slice();
+          var newArray3 = _this6.state.elective_arr_bool.slice();
+          var newArray4 = _this6.state.additional_arr_bool.slice();
+          var newArray5 = _this6.state.subjectChecked.slice();
+          for (var j = 0; j < _this6.state.subjectList.length; j++) {
+            newArray5.push(false);
+          }
+          _this6.setState({
+            subjectChecked: newArray5
+          });
+          for (var i = 0; i < res.data.data.length; i++) {
+            console.log(res.data.data[i].compulsary);
+            var index = _this6.state.subjectList.indexOf(res.data.data[i].subjectName);
+            _this6.state.subjectChecked[index] = true;
+            newArray.push(res.data.data[i].subjectName);
+            if (res.data.data[i].compulsary == 1) {
+              newArray2.push(true);
+            } else {
+              newArray2.push(false);
+            }
+            if (res.data.data[i].elective == 1) {
+              newArray3.push(true);
+            } else {
+              newArray3.push(false);
+            }
+            if (res.data.data[i].addition == 1) {
+              newArray4.push(true);
+            } else {
+              newArray4.push(false);
+            }
+            console.log(newArray2);
+          }
+          console.log(newArray2);
+          _this6.setState({
+            subject_arr: newArray
+          });
+          _this6.setState({
+            compulsary_arr_bool: newArray2
+          });
+          _this6.setState({
+            elective_arr_bool: newArray3
+          });
+          _this6.setState({
+            additional_arr_bool: newArray2
+          });
+          console.log(_this6.state.compulsary_arr_boo4);
+
+          //window.location.href = "http://127.0.0.1:8000/users";
+
+          console.log(_this6.state.compulsary_arr);
+        }
+      });
+    }
+  }, {
+    key: "stateChange",
+    value: function stateChange() {}
+  }, {
+    key: "handleSubChange",
+    value: function handleSubChange(event) {
+      var key = event.target.attributes.getNamedItem('data').value;
+      console.log(key);
+      var array = _toConsumableArray(this.state.compulsary_arr);
+      var array2 = _toConsumableArray(this.state.compulsary_arr_bool);
+      if (event.target.checked) {
+        array[key] = 1;
+        array2[key] = true;
+      } else {
+        array[key] = 0;
+        array2[key] = false;
+      }
+      this.setState({
+        compulsary_arr: array
+      });
+      this.setState({
+        compulsary_arr_bool: array2
+      });
+    }
+  }, {
+    key: "handleSubAdditional",
+    value: function handleSubAdditional(event) {
+      var key = event.target.attributes.getNamedItem('data').value;
+      console.log(key);
+      var array = _toConsumableArray(this.state.additional_arr);
+      var array2 = _toConsumableArray(this.state.additional_arr_bool);
+      if (event.target.checked) {
+        array[key] = 1;
+        array2[key] = true;
+      } else {
+        array[key] = 0;
+        array2[key] = false;
+      }
+      this.setState({
+        additional_arr: array
+      });
+      this.setState({
+        additional_arr_bool: array2
+      });
+      console.log(event.target);
+      console.log(this.state.additional_arr);
+    }
+  }, {
+    key: "handleSubPriority",
+    value: function handleSubPriority(event) {
+      var key = event.target.attributes.getNamedItem('data').value;
+      console.log(key);
+      var array = _toConsumableArray(this.state.priority_arr);
+      if (event.target.checked) {
+        array[key] = 1;
+      } else {
+        array[key] = 0;
+      }
+      this.setState({
+        priority_arr: array
+      });
+      console.log(event.target);
+      console.log(this.state.priority_arr);
+    }
+  }, {
+    key: "handleSubRank",
+    value: function handleSubRank(event) {
+      var key = event.target.attributes.getNamedItem('data').value;
+      console.log(key);
+      if (event.target.checked) {
+        this.state.compulsary_arr[key] = 1;
+      } else {
+        this.state.compulsary_arr[key] = 0;
+      }
+      console.log(event.target);
+      console.log(this.state.compulsary_arr);
+    }
+  }, {
+    key: "handleSubElective",
+    value: function handleSubElective(event) {
+      var key = event.target.attributes.getNamedItem('data').value;
+      console.log(key);
+      var array = _toConsumableArray(this.state.elective_arr);
+      var array2 = _toConsumableArray(this.state.elective_arr_bool);
+      if (event.target.checked) {
+        array[key] = 1;
+        array2[key] = true;
+      } else {
+        array[key] = 0;
+        array2[key] = false;
+      }
+      this.setState({
+        elective_arr: array
+      });
+      this.setState({
+        elective_arr_bool: array2
+      });
+      console.log(event.target);
+      console.log(this.state.elective_arr);
+    }
+  }, {
+    key: "subAdd",
+    value: function subAdd(event) {
+      console.log(event);
+      var checked = event.target.checked;
+      console.log(checked);
+      // var index=event.target.attributes.getNamedItem('data-index').value;
+
+      if (checked) {
+        var newArray = this.state.subject_arr.slice();
+        newArray.push(event.target.value);
+        this.setState({
+          subject_arr: newArray
+        });
+        var newArray2 = this.state.subjectId_arr.slice();
+        newArray2.push(event.target.attributes.getNamedItem('data').value);
+        this.setState({
+          subjectId_arr: newArray2
+        });
+        var comArray = this.state.compulsary_arr.slice();
+        comArray.push(0);
+        this.setState({
+          compulsary_arr: comArray
+        });
+        console.log(this.state.subject_arr);
+        var additionalArray = this.state.additional_arr.slice();
+        additionalArray.push(0);
+        this.setState({
+          additional_arr: comArray
+        });
+        console.log(this.state.additional_arr);
+        var elecArray = this.state.elective_arr.slice();
+        elecArray.push(0);
+        this.setState({
+          elective_arr: elecArray
+        });
+        console.log(this.state.elective_arr);
+        var priorArray = this.state.priority_arr.slice();
+        priorArray.push(0);
+        this.setState({
+          priority_arr: priorArray
+        });
+        console.log(this.state.priority_arr);
+      } else {
+        var newArray = _toConsumableArray(this.state.subject_arr); // make a separate copy of the array
+        var index = newArray.indexOf(event.target.value);
+        console.log(newArray);
+        if (index !== -1) {
+          console.log('abfg');
+          newArray.splice(index, 1);
+          this.setState({
+            subject_arr: newArray
+          });
+          console.log(this.state.subject_arr);
+        }
+        var newArray2 = _toConsumableArray(this.state.subjectId_arr); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray2.splice(index, 1);
+          this.setState({
+            subjectId_arr: newArray2
+          });
+        }
+        var newArray3 = _toConsumableArray(this.state.compulsary_arr); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray3.splice(index, 1);
+          this.setState({
+            compulsary_arr: newArray3
+          });
+        }
+        var newArray4 = _toConsumableArray(this.state.elective_arr); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray4.splice(index, 1);
+          this.setState({
+            elective_arr: newArray4
+          });
+        }
+        var newArray5 = _toConsumableArray(this.state.additional_arr); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray5.splice(index, 1);
+          this.setState({
+            additional_arr: newArray5
+          });
+        }
+        var newArray5 = _toConsumableArray(this.state.priority_arr); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray5.splice(index, 1);
+          this.setState({
+            priority_arr: newArray5
+          });
+        }
+        var newArray7 = _toConsumableArray(this.state.additional_arr_bool); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray7.splice(index, 1);
+          this.setState({
+            additional_arr_bool: newArray7
+          });
+        }
+        var newArray8 = _toConsumableArray(this.state.elective_arr_bool); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray8.splice(index, 1);
+          this.setState({
+            elective_arr_bool: newArray8
+          });
+        }
+        var newArray9 = _toConsumableArray(this.state.compulsary_arr_bool); // make a separate copy of the array
+
+        if (index !== -1) {
+          newArray9.splice(index, 1);
+          this.setState({
+            compulsary_arr_bool: newArray9
+          });
+        }
+        // this.setState({subject_arr:newArray})
+
+        //this.setState({subjectId_arr:newArray2})
+      }
+
+      this.setState({
+        showEnd: true
+      });
+    }
+  }, {
+    key: "formSubmit",
+    value: function formSubmit(event) {
+      var _this7 = this;
+      event.preventDefault();
+      if (this.state.courseId == '') {
+        this.setState({
+          showError: true,
+          message: "Course can't be empty"
+        });
+      } else {
+        axios.post("http://127.0.0.1:8000/api/add_class_wise_sub_process", {
+          sectionName: this.state.section_arr,
+          classId: this.state.classId,
+          courseId: this.state.courseId,
+          subjectId: this.state.subjectId_arr,
+          compulsary: this.state.compulsary_arr,
+          elective: this.state.elective_arr,
+          priority: this.state.priority_arr,
+          addition: this.state.additional_arr
+        }).then(function (res) {
+          console.log(res.data);
+          if (res.data.status == true) {
+            _this7.setState({
+              showError: false,
+              showSuccess: true,
+              message: res.data.message
+            });
+            window.location.href = "http://127.0.0.1:8000/subject_list";
+          }
+          if (res.data.status == false) {
+            _this7.setState({
+              showError: true,
+              showSuccess: false,
+              message: res.data.message
+            });
+          }
+        });
+      }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this8 = this;
+      axios.get("http://127.0.0.1:8000/api/course_list/").then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this8.setState({
+            courseList: res.data.data
+          });
+          //window.location.href = "http://127.0.0.1:8000/users";
+
+          console.log(_this8.state.courseList);
+        }
+      });
+      var cid = window.location.href.split('/')[4];
+      // console.log("hello"+ cid);
+
+      axios.get("http://127.0.0.1:8000/api/class_wise_sub_list_id/".concat(cid)).then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this8.setState({
+            courseId: res.data.data[0].courseId
+          }, _this8.getClasslist_load);
+          _this8.setState({
+            classId: res.data.data[0].classId,
+            tempSectionId: res.data.data[0].sectionId
+          }, _this8.getSectionlistLoad);
+          _this8.setState({
+            showMidSec: true,
+            showEnd: true
+          }, _this8.getSubject_load);
+        }
+      });
+      axios.get("http://127.0.0.1:8000/api/subject_list/").then(function (res) {
+        console.log(res.data);
+        if (res.data.status == true) {
+          _this8.setState({
+            subjectList: res.data.data
+          });
+          //window.location.href = "http://127.0.0.1:8000/users";
+        }
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this9 = this;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_basic_Preloader__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          id: "main-wrapper",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_layout_HeaderPart__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "content-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "container-fluid",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "row page-titles mx-0",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "col-sm-6 p-md-0",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "welcome-text",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+                      children: "Edit Class Wise Subject"
+                    })
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ol", {
+                    className: "breadcrumb",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+                        href: "/class_wise_subject_list",
+                        className: "btn bg-blue-soft text-blue",
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                          className: "fa fa-angle-double-left"
+                        }), " Back to Class Wise Subject List"]
+                      })
+                    })
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "col-xl-12 col-xxl-12",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "card",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      className: "card-body",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        className: "basic-form form-own",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+                          onSubmit: this.formSubmit,
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                            className: "form-row",
+                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                              className: "form-group col-md-6",
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                children: "Course Name"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                                className: "form-control",
+                                id: "courseid",
+                                name: "courseId",
+                                onChange: this.handleChangeEvent,
+                                value: this.state.courseId,
+                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                                  value: "",
+                                  children: "Select Course"
+                                }), this.state.courseList.map(function (item, key) {
+                                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                                    value: item.courseId,
+                                    children: item.courseName
+                                  });
+                                })]
+                              })]
+                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                              className: "form-group col-md-6",
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                children: "Class Name"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                                className: "form-control",
+                                id: "classid",
+                                name: "classId",
+                                onChange: this.handleChangeEvent,
+                                value: this.state.classId,
+                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                                  value: "",
+                                  children: "Select Class"
+                                }), this.state.classList.map(function (item, key) {
+                                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                                    value: item.classId,
+                                    children: item.className
+                                  });
+                                })]
+                              })]
+                            }), this.state.showMidSec ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                              className: "form-group col-md-12",
+                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                children: "Section Name"
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                className: "Schedule-section",
+                                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                  className: "form-checkbox-grid",
+                                  children: [this.state.sectionList.map(function (item, key) {
+                                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                      className: "form-check form-checkbox col-md-2",
+                                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                        type: "checkbox",
+                                        className: "form-check-input testing",
+                                        "data-index": key,
+                                        checked: _this9.state.sectionListVal[key],
+                                        id: "check1",
+                                        value: item.sectionId,
+                                        onClick: _this9.sectionAdd
+                                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                        className: "form-check-label",
+                                        htmlFor: "check1",
+                                        children: item.sectionName
+                                      })]
+                                    });
+                                  }), this.state.na ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                    className: "form-check form-checkbox col-md-2",
+                                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                      className: "form-check-label",
+                                      htmlFor: "check1",
+                                      children: "N/A"
+                                    })
+                                  }) : null]
+                                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                  className: "form-checkbox-grid select-grid-bg",
+                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                    className: "form-check form-checkbox col-md-2",
+                                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                      type: "checkbox",
+                                      className: "form-check-input",
+                                      id: "check3",
+                                      defaultValue: true,
+                                      onClick: this.selectAll
+                                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                      className: "form-check-label",
+                                      htmlFor: "check3",
+                                      children: "Select All"
+                                    })]
+                                  })
+                                })]
+                              })]
+                            }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                              className: "form-group col-md-12",
+                              children: [this.state.showMidSec ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                                children: "Select Subjects from the list showing below & then Click Add Button"
+                              }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                className: "Schedule-subject",
+                                children: [this.state.showMidSec ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                  className: "form-checkbox-grid",
+                                  children: [this.state.subjectList.map(function (item, key) {
+                                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                      className: "form-check form-checkbox col-md-3",
+                                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                        className: "bg-padd",
+                                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                          type: "checkbox",
+                                          className: "form-check-input",
+                                          checked: _this9.state.subjectChecked[key],
+                                          id: "check1",
+                                          data: item.subjectId,
+                                          "data-index": key,
+                                          value: item.subjectName,
+                                          onClick: _this9.subAdd
+                                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                                          className: "form-check-label",
+                                          htmlFor: "check1",
+                                          children: item.subjectName
+                                        })]
+                                      })
+                                    });
+                                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                    className: "form-group col-md-12 text-right"
+                                  })]
+                                }) : null, this.state.showEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                  className: "form-group col-md-12",
+                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                    className: "Schedule-table",
+                                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                      className: "table-responsive",
+                                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("table", {
+                                        className: "table table-bordered table-striped verticle-middle table-responsive-sm",
+                                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
+                                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+                                            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                                              scope: "col",
+                                              children: "Subject"
+                                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                                              scope: "col",
+                                              children: "Taken For Rank"
+                                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                                              scope: "col",
+                                              children: "Elective"
+                                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                                              scope: "col",
+                                              children: "Additional"
+                                            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                                              scope: "col",
+                                              children: "Priority"
+                                            })]
+                                          })
+                                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
+                                          children: this.state.subject_arr.map(function (item, key) {
+                                            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+                                              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+                                                children: [item, " "]
+                                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                                  className: "form-check form-checkbox",
+                                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                                    type: "checkbox",
+                                                    className: "form-check-input",
+                                                    checked: _this9.state.compulsary_arr_bool[key],
+                                                    value: _this9.state.compulsary_arr[key],
+                                                    data: [key],
+                                                    onClick: _this9.handleSubChange
+                                                  })
+                                                })
+                                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                                  className: "form-check form-checkbox",
+                                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                                    type: "checkbox",
+                                                    className: "form-check-input",
+                                                    checked: _this9.state.elective_arr_bool[key],
+                                                    value: _this9.state.elective_arr[key],
+                                                    data: [key],
+                                                    onClick: _this9.handleSubElective
+                                                  })
+                                                })
+                                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                                  className: "form-check form-checkbox",
+                                                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                                    type: "checkbox",
+                                                    className: "form-check-input",
+                                                    checked: _this9.state.additional_arr_bool[key],
+                                                    value: _this9.state.additional_arr[key],
+                                                    data: [key],
+                                                    onClick: _this9.handleSubAdditional
+                                                  })
+                                                })
+                                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                                                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                                  name: "newsubject[0].priority",
+                                                  type: "text",
+                                                  value: _this9.state.priority_arr[key],
+                                                  "aria-invalid": "false",
+                                                  className: "form-control",
+                                                  data: [key],
+                                                  onChange: _this9.handleSubPriority
+                                                })
+                                              })]
+                                            });
+                                          })
+                                        })]
+                                      })
+                                    })
+                                  })
+                                }) : null]
+                              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), this.state.showEnd ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                                type: "submit",
+                                className: "btn btn-primary",
+                                defaultValue: "Save",
+                                onClick: this.formSubmit
+                              }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                                className: "text-center",
+                                children: [this.state.showError ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                  className: "error",
+                                  children: this.state.message
+                                }) : null, this.state.showSuccess ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                                  className: "success",
+                                  children: this.state.message
+                                }) : null]
+                              })]
                             })]
                           })
                         })
@@ -9119,9 +10056,9 @@ var ClassWiseSubjectAdd = /*#__PURE__*/function (_Component) {
       });
     }
   }]);
-  return ClassWiseSubjectAdd;
+  return ClassWiseSubjectEdit;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClassWiseSubjectAdd);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ClassWiseSubjectEdit);
 
 /***/ }),
 
@@ -9221,7 +10158,7 @@ var ClassWiseSubjectList = /*#__PURE__*/function (_Component) {
                     className: "breadcrumb breadcrumb-btn",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
-                        href: "./class-wise-subjects-create.html",
+                        href: "./class_wise_subject_add",
                         className: "btn bg-blue-soft text-blue",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                           className: "fa fa-user-plus"
@@ -9312,7 +10249,7 @@ var ClassWiseSubjectList = /*#__PURE__*/function (_Component) {
                                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
                                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                                     className: "btn",
-                                    href: "./edit-user.html",
+                                    href: "/class_wise_subject_edit/".concat(item.id),
                                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                                       className: "fa fa-edit",
                                       "aria-hidden": "true"
@@ -16626,8 +17563,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login */ "./resources/js/components/login.js");
 /* harmony import */ var _admin_pages_Users__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin/pages/Users */ "./resources/js/components/admin/pages/Users.js");
 /* harmony import */ var _admin_pages_SectionAdd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./admin/pages/SectionAdd */ "./resources/js/components/admin/pages/SectionAdd.js");
@@ -16642,18 +17579,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_pages_Dashboard__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./admin/pages/Dashboard */ "./resources/js/components/admin/pages/Dashboard.js");
 /* harmony import */ var _admin_pages_CourseEdit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./admin/pages/CourseEdit */ "./resources/js/components/admin/pages/CourseEdit.js");
 /* harmony import */ var _admin_pages_ClassWiseSubjectAdd__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/pages/ClassWiseSubjectAdd */ "./resources/js/components/admin/pages/ClassWiseSubjectAdd.js");
-/* harmony import */ var _admin_pages_StationList__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/pages/StationList */ "./resources/js/components/admin/pages/StationList.js");
-/* harmony import */ var _admin_pages_AddStation__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/pages/AddStation */ "./resources/js/components/admin/pages/AddStation.js");
-/* harmony import */ var _admin_pages_EditStation__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/pages/EditStation */ "./resources/js/components/admin/pages/EditStation.js");
-/* harmony import */ var _admin_pages_ViewStation__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/pages/ViewStation */ "./resources/js/components/admin/pages/ViewStation.js");
-/* harmony import */ var _admin_pages_RouteList__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/pages/RouteList */ "./resources/js/components/admin/pages/RouteList.js");
-/* harmony import */ var _admin_pages_AddRoute__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/pages/AddRoute */ "./resources/js/components/admin/pages/AddRoute.js");
-/* harmony import */ var _admin_pages_EditRoute__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/pages/EditRoute */ "./resources/js/components/admin/pages/EditRoute.js");
-/* harmony import */ var _admin_pages_ViewRoute__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/pages/ViewRoute */ "./resources/js/components/admin/pages/ViewRoute.js");
-/* harmony import */ var _admin_pages_FeeCatList__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/pages/FeeCatList */ "./resources/js/components/admin/pages/FeeCatList.js");
-/* harmony import */ var _admin_pages_FeeCatAdd__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/pages/FeeCatAdd */ "./resources/js/components/admin/pages/FeeCatAdd.js");
-/* harmony import */ var _admin_pages_ClassWiseSubjectList__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/pages/ClassWiseSubjectList */ "./resources/js/components/admin/pages/ClassWiseSubjectList.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _admin_pages_ClassWiseSubjectEdit__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./admin/pages/ClassWiseSubjectEdit */ "./resources/js/components/admin/pages/ClassWiseSubjectEdit.js");
+/* harmony import */ var _admin_pages_StationList__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./admin/pages/StationList */ "./resources/js/components/admin/pages/StationList.js");
+/* harmony import */ var _admin_pages_AddStation__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./admin/pages/AddStation */ "./resources/js/components/admin/pages/AddStation.js");
+/* harmony import */ var _admin_pages_EditStation__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./admin/pages/EditStation */ "./resources/js/components/admin/pages/EditStation.js");
+/* harmony import */ var _admin_pages_ViewStation__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./admin/pages/ViewStation */ "./resources/js/components/admin/pages/ViewStation.js");
+/* harmony import */ var _admin_pages_RouteList__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./admin/pages/RouteList */ "./resources/js/components/admin/pages/RouteList.js");
+/* harmony import */ var _admin_pages_AddRoute__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./admin/pages/AddRoute */ "./resources/js/components/admin/pages/AddRoute.js");
+/* harmony import */ var _admin_pages_EditRoute__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./admin/pages/EditRoute */ "./resources/js/components/admin/pages/EditRoute.js");
+/* harmony import */ var _admin_pages_ViewRoute__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./admin/pages/ViewRoute */ "./resources/js/components/admin/pages/ViewRoute.js");
+/* harmony import */ var _admin_pages_FeeCatList__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/pages/FeeCatList */ "./resources/js/components/admin/pages/FeeCatList.js");
+/* harmony import */ var _admin_pages_FeeCatAdd__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/pages/FeeCatAdd */ "./resources/js/components/admin/pages/FeeCatAdd.js");
+/* harmony import */ var _admin_pages_ClassWiseSubjectList__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/pages/ClassWiseSubjectList */ "./resources/js/components/admin/pages/ClassWiseSubjectList.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -16686,96 +17625,99 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Hello() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_28__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.Fragment, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Routes, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.Fragment, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Routes, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "/",
           exact: true,
           component: _login__WEBPACK_IMPORTED_MODULE_2__["default"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_login__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_login__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "users",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_Users__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_Users__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "course_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_CourseAdd__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_CourseAdd__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "course_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_CourseList__WEBPACK_IMPORTED_MODULE_10__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_CourseList__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "section_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_SectionList__WEBPACK_IMPORTED_MODULE_12__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_SectionList__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "section_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_SectionAdd__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_SectionAdd__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "subject_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_SubjectAdd__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_SubjectAdd__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "student_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_StudentAdd__WEBPACK_IMPORTED_MODULE_9__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_StudentAdd__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "subject_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_SubjectList__WEBPACK_IMPORTED_MODULE_11__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_SubjectList__WEBPACK_IMPORTED_MODULE_11__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "section_edit/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_SectionEdit__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_SectionEdit__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "subject_edit/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_SubjectEdit__WEBPACK_IMPORTED_MODULE_7__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_SubjectEdit__WEBPACK_IMPORTED_MODULE_7__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "dashboard",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_Dashboard__WEBPACK_IMPORTED_MODULE_13__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_Dashboard__WEBPACK_IMPORTED_MODULE_13__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "/course_edit/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_CourseEdit__WEBPACK_IMPORTED_MODULE_14__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_CourseEdit__WEBPACK_IMPORTED_MODULE_14__["default"], {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "class_wise_subject_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_ClassWiseSubjectAdd__WEBPACK_IMPORTED_MODULE_15__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_ClassWiseSubjectAdd__WEBPACK_IMPORTED_MODULE_15__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
+          path: "class_wise_subject_edit/:id",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_ClassWiseSubjectEdit__WEBPACK_IMPORTED_MODULE_16__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "station_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_StationList__WEBPACK_IMPORTED_MODULE_16__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_StationList__WEBPACK_IMPORTED_MODULE_17__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "station_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_AddStation__WEBPACK_IMPORTED_MODULE_17__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_AddStation__WEBPACK_IMPORTED_MODULE_18__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "station_edit/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_EditStation__WEBPACK_IMPORTED_MODULE_18__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_EditStation__WEBPACK_IMPORTED_MODULE_19__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "station_view/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_ViewStation__WEBPACK_IMPORTED_MODULE_19__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_ViewStation__WEBPACK_IMPORTED_MODULE_20__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "route_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_RouteList__WEBPACK_IMPORTED_MODULE_20__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_RouteList__WEBPACK_IMPORTED_MODULE_21__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "route_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_AddRoute__WEBPACK_IMPORTED_MODULE_21__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_AddRoute__WEBPACK_IMPORTED_MODULE_22__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "route_view/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_ViewRoute__WEBPACK_IMPORTED_MODULE_23__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_ViewRoute__WEBPACK_IMPORTED_MODULE_24__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "route_edit/:id",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_EditRoute__WEBPACK_IMPORTED_MODULE_22__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_EditRoute__WEBPACK_IMPORTED_MODULE_23__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "feecat_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_FeeCatList__WEBPACK_IMPORTED_MODULE_24__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_FeeCatList__WEBPACK_IMPORTED_MODULE_25__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "feecat_add",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_FeeCatAdd__WEBPACK_IMPORTED_MODULE_25__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_29__.Route, {
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_FeeCatAdd__WEBPACK_IMPORTED_MODULE_26__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_30__.Route, {
           path: "class_wise_subject_list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(_admin_pages_ClassWiseSubjectList__WEBPACK_IMPORTED_MODULE_26__["default"], {})
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(_admin_pages_ClassWiseSubjectList__WEBPACK_IMPORTED_MODULE_27__["default"], {})
         })]
       })
     })
   });
 }
 var root = react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot(document.getElementById("root"));
-root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_27__.jsx)(Hello, {}));
+root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_28__.jsx)(Hello, {}));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Hello);
 
 /***/ }),

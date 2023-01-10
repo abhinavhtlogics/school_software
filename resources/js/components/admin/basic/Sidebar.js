@@ -50,8 +50,8 @@ class Sidebar extends Component {
                     <li><a href="/section_list">Section Master</a></li>
                     <li><a className="has-arrow"  aria-expanded="false">Subject Master</a>
                       <ul aria-expanded="false">
-                        <li><a href="./subject_list">Subjects</a></li>
-                        <li><a href="./class-wise-subjects-list.html">Assign Class-wise Subjects</a></li>
+                        <li><a href="subject_list">Subjects</a></li>
+                        <li><a href="./class_wise_subject_list">Assign Class-wise Subjects</a></li>
                       </ul>
                     </li>
                     <li><a className="has-arrow"  aria-expanded="false">Student Registration</a>
