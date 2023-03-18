@@ -1,81 +1,64 @@
-import React, { Component } from "react";
+import React, { Component } from "react";  
+import axios from 'axios'; 
+import { Link } from 'react-router-dom';  
+import Swal from 'sweetalert2';	   
 
-
-import Script from "@gumgum/react-script-tag";
-
-import Copyright from "../basic/Copyright";
-
+import Script from "@gumgum/react-script-tag"; 		
+import Copyright from "../basic/Copyright"; 
 import Preloader from "../basic/Preloader";
 import HeaderPart from "../layout/HeaderPart";
+
+axios.defaults.baseURL='http://127.0.0.1:8000/api';  
 
 class FeeCatAdd extends Component {
     constructor() {
         super();
         this.state = {
             showError: false,
-            showSuccess: false,
+            showSuccess: false,			
             messgae: '',
-            remark: '',
-            courseName: '',
-
+			title:''   	
         };
         this.formSubmit = this.formSubmit.bind(this);
-        this.handleChangeEvent = this.handleChangeEvent.bind(this);
-
-
-
+        this.handleChange = this.handleChange.bind(this);  
 
     }
-    handleChangeEvent(event) {
-        event.preventDefault();
-        console.log("gdtyy");
-        console.log(event.target);
+    handleChange(event) {  
+        event.preventDefault();		
         this.setState({ [event.target.name]: event.target.value });
-    }
-
-
-
-
+    }  
     formSubmit(event) {
         event.preventDefault();
         this.setState({ showError: false, showSuccess: false });
+		const { title,fee_type,applicable,changeable,printable } = event.target;  
 
-        if (this.state.courseName == '') {
-            this.setState({ showError: true, message: "Course Name can't be empty" });
-        }
-
-        // else if(this.state.remark == ''){
-        //   this.setState({ showError: true, message:"Remark can't be empty" });
-        // }
-        else {
-
-
-            axios.post(`http://127.0.0.1:8000/api/add_course_process`, {
-                remark: this.state.remark,
-                courseName: this.state.courseName
-
-            })
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.status == true) {
-                        this.setState({ showError: false, showSuccess: true, message: res.data.message });
-                        window.location.href = "http://127.0.0.1:8000/course_list";
-                    }
-
-                    if (res.data.status == false) {
-                        this.setState({ showError: true, showSuccess: false, message: res.data.message });
-                    }
-                })
-        }
+		const data = {
+			title: title.value,			
+			fee_type: fee_type.value,
+			applicable: applicable.value,			
+			changeable: changeable.value,    
+			printable: printable.value   
+		}	
+		
+		axios.post(`feecat/create`,data)		
+		.then(res => {
+			
+			message: res.data.message				 			   
+			
+			if (res.data.status == 'successed') {
+				this.setState({ showError: false, showSuccess: true, message: res.data.message});
+				// window.location.href = "http://127.0.0.1:8000/feecat_list";   
+			}else{
+				this.setState({ showError: true, showSuccess: false, message: res.data.message});		
+			}
+		})          
 
     }
     render() {
 
         return (
 
-            <div>
-
-
+            <div>  
 
                 {/********************
         Preloader Start
@@ -91,32 +74,17 @@ Preloader end
 Main wrapper start
 ************************************/}
 
-                <div id="main-wrapper">
-
-
+                <div id="main-wrapper">  
 
                     {/***********************************
 HeaderPart start
 ************************************/}
 
-
-
-
-                    <HeaderPart />
-
+                    <HeaderPart /> 
 
                     {/***********************************
 HaderPart end
 ************************************/}
-
-
-
-
-
-
-
-
-
 
                     {/***********************************
           Content body start
@@ -143,79 +111,128 @@ HaderPart end
                                         <div className="card-body">
                                             <div className="basic-form form-own">
                                                 <form onSubmit={this.formSubmit}>
-                                                    <div className="form-row">
-                                                        <div className="form-group col-sm-6">
-                                                            <label>Fee Category</label>
-                                                            <input type="text" className="form-control" name="FeeCatDesc" onChange={this.handleChangeEvent} value={this.state.FeeCatDesc} />
+                                                    <div className="form-row">  
+													
+														 <div className="form-group col-md-6">
+															<label>Fee Category</label>  	
+															<input type="text" name="title" value={this.state.title?this.state.title:''} className="form-control"  placeholder="Enter Category Title" onChange={this.handleChange}/>  
+														 </div>
 
-                                                        </div>
-                                                        <div className="form-group col-sm-6">
-                                                            <label>Fee Type</label>
-                                                            <div className="form-check fee-form-radio">
-                                                                <input className="form-check-input" type="radio" name="FeeType" value="Tution" checked={this.state.FeeType === 'Tution'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Tution</label>
-
-                                                                <input className="form-check-input" type="radio" name="FeeType" value="Fine" checked={this.state.FeeType === 'Fine'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Fine</label>
-
-                                                                <input className="form-check-input" type="radio" name="FeeType" value="Transport" checked={this.state.FeeType === 'Transport'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Transport</label>
-
-                                                                <input className="form-check-input" type="radio" name="FeeType" value="Others" checked={this.state.FeeType === 'Others'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Others</label>
-                                                            </div>
-                                                        </div>
-
+														 <div className="form-group col-md-6">
+															<label>Fee Type</label>    
+															<div className="form-row">
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="fee_type" value="tution" ref={this.input}/>  
+																  <label className="form-check-label">Tution</label>
+																</div>  
+															  </div>
+															  
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="fee_type" value="fine" ref={this.input}/>  
+																  <label className="form-check-label">Fine</label>
+																</div>  
+															  </div>
+															  
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="fee_type" value="transport" ref={this.input}/>  
+																  <label className="form-check-label">Transport</label>
+																</div>  
+															  </div>
+															  
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="fee_type" value="other" ref={this.input}/>		
+																  <label className="form-check-label">Others</label>  
+																</div>   		 		
+															  </div>
+															  
+															</div>
+														  </div>	
+														
+                                                        
                                                     </div>{/*/ form-row */}
 
-                                                    <div className="form-row">
-
+                                                    <div className="form-row">  
                                             
-                                                        <div className="form-group col-sm-4">
-                                                            <label>Applicable</label>
-                                                            <div className="form-check fee-form-radio">
-                                                                <input className="form-check-input" type="radio" name="Applicable" value="All" checked={this.state.FeeType === 'All'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">All</label>
-
-                                                                <input className="form-check-input" type="radio" name="Applicable" value="Old" checked={this.state.FeeType === 'Old'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Old</label>
-
-                                                                <input className="form-check-input" type="radio" name="Applicable" value="New" checked={this.state.FeeType === 'New'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">New</label>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="form-group col-sm-4">
-                                                            <label>Printable</label>
-                                                            <div className="form-check settings-form-radio">
-                                                                <input className="form-check-input" type="radio" name="Printable" value="Yes" checked={this.state.FeeType === 'Yes'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Yes</label>
-
-                                                                <input className="form-check-input" type="radio" name="Printable" value="No" checked={this.state.FeeType === 'No'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">No</label>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="form-group col-sm-4">
-                                                            <label>Changeable</label>
-                                                            <div className="form-check settings-form-radio">
-                                                                <input className="form-check-input" type="radio" name="Changeable" value="Yes" checked={this.state.FeeType === 'Yes'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">Yes</label>
-
-                                                                <input className="form-check-input" type="radio" name="Changeable" value="No" checked={this.state.FeeType === 'No'} onChange={this.handleChangeEvent} />
-                                                                <label className="form-check-label">No</label>
-                                                            </div>
-                                                        </div>
-
+                                                        <div className="form-group col-md-6">
+															<label>Applicable</label>  
+															<div className="form-row">
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="applicable" value="all" ref={this.input}/>  
+																  <label className="form-check-label">All</label>
+																</div>  
+															  </div>
+															  
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="applicable" value="old" ref={this.input}/>  
+																  <label className="form-check-label">Old</label>
+																</div>		
+															  </div>
+															  
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="applicable" value="new" ref={this.input}/>  
+																  <label className="form-check-label">New</label>
+																</div>  
+															  </div>   
+															  
+															</div>
+														  </div>
+														  
+														  <div className="form-group col-md-3">
+															<label>Printable</label>  
+															<div className="form-row">
+															  <div className="form-group col-md-3">   
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="printable" value="1" ref={this.input}/>  
+																  <label className="form-check-label">Yes</label>
+																</div>  
+															  </div>
+															  
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="printable" value="0" ref={this.input}/>  
+																  <label className="form-check-label">No</label>  
+																</div>		
+															  </div>  
+															  
+															</div>
+														  </div>
+														  
+														  <div className="form-group col-md-3">
+															<label>Changeable</label>  
+															<div className="form-row">
+															  <div className="form-group col-md-3">
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="changeable" value="1" ref={this.input}/>  
+																  <label className="form-check-label">Yes</label>
+																</div>  
+															  </div>
+															  
+															  <div className="form-group col-md-3"> 
+																<div className="form-check">
+																  <input className="form-check-input" type="radio" name="changeable" value="0" ref={this.input}/>  
+																  <label className="form-check-label">No</label>
+																</div>		
+															  </div>    		
+															  
+															</div>
+														  </div>
+					
                                                     </div>{/*/ form-row */}
 
                                                     <div className="form-row">
                                                         <div className="form-group col-sm-6">
-                                                            <input type="submit" className="btn btn-primary" defaultValue="Submit" />
+                                                            <input type="submit" className="btn btn-primary" value="Submit" />
                                                         </div>
-                                                    </div>{/*/ form-row */}
+                                                    </div>{/*/ form-row */}		
 
-                                                    <div className="text-center">
+                                                    <div className="text-center">  
 
                                                         {this.state.showError ? <div className="error">{this.state.message}</div> : null}
 
@@ -231,8 +248,7 @@ HaderPart end
                         </div>
                     </div>
                     {/***********************************
-          Content body end
-    
+          Content body end     
 
           {/***********************************
             Footer Copyright start
@@ -242,18 +258,12 @@ HaderPart end
 
                     {/***********************************
   Footer Copyright end
-************************************/}
-
-
-
-
-                </div>
+************************************/}  </div>
                 {/***********************************
 Main wrapper end
 ************************************/}
             </div>
         );
     }
-}
-
-export default FeeCatAdd;
+} 
+export default FeeCatAdd;	

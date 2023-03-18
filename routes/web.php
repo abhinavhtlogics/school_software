@@ -117,15 +117,86 @@ Route::get('/feecat_list', function () {
 Route::get('/feecat_add', function () {
     return view('feecat_add');
 });
-
+Route::get('/feecat_view/{id}', function () {
+    return view('feecat_view');		
+});
 Route::get('/feecat_edit/{id}', function () {
     return view('feecat_edit');
 });
 Route::get('/feecat_delete/{id}', function () {
     return view('feecat_delete');
 });
-
+Route::get('/feeslot', function () {
+    return view('fee_slot');    					
+});   
+Route::get('/fee_amount', function () {	
+    return view('fee_amount');    					
+}); 
+Route::get('/fee_amount_list', function () {	
+    return view('fee_amount_list');       					
+});    
+Route::get('/fee_amount_add', function () {	
+    return view('fee_amount_add');       					
+});   
+Route::get('/fee_amount_edit/{id}', function () {
+    return view('fee_amount_edit');    				
+});  
+Route::get('/fine_setting', function () {	
+    return view('fine_setting');    		  					
+});  
+Route::get('/fee_concession', function () {	
+    return view('fee_concession');        		  					
+});  
+Route::get('/payment_mode_list', function () {	
+    return view('payment_mode_list');             		   		  					
+});     
+Route::get('/payment_mode_add', function () {	
+    return view('add_payment_mode');     		   		  					
+});      
+Route::get('/payment_mode_edit/{id}', function () {	  
+    return view('edit_payment_mode');     		   		  					
+});  
 
 Route::get('/class_wise_subject_list', function () {
     return view('class_wise_subject_list');    
 }); 
+
+
+Route::get('/fee_amount_ind', function () {	
+    return view('fee_amount_ind');       					
+});   
+
+Route::get('/print_id_card', function () {
+    return view('print_id_card');    
+}); 
+
+
+
+
+//Added by abhinav
+
+Route::get('/create_department', function () {
+    return view('create_department');    
+});
+
+Route::get('/department_list', function () {
+    return view('department_list');    
+});
+
+
+Route::get('/create_qualification', function () {
+    return view('create_qualification');    
+});
+
+Route::get('/qualification_list', function () {
+    return view('qualification_list');    
+});
+
+Route::get('/create_designation', function () {
+    return view('create_designation');    
+});
+
+
+Route::get('/designation_list', function () {
+    return view('designation_list');    
+});

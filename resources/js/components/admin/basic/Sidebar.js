@@ -235,9 +235,9 @@ class Sidebar extends Component {
               <ul aria-expanded="false">
                 <li><a className="has-arrow"  aria-expanded="false"><i className="fa fa-files-o" />Master</a>
                   <ul aria-expanded="false">
-                    <li><a href="#">Department Master</a></li>
-                    <li><a href="#">Designation Master</a></li>
-                    <li><a href="#">Qaulification Master</a></li>
+                    <li><a href="department_list">Department Master</a></li>
+                    <li><a href="designation_list">Designation Master</a></li>
+                    <li><a href="qualification_list">Qaulification Master</a></li>
                   </ul>
                 </li>
                 <li><a className="has-arrow"  aria-expanded="false"><i className="fa fa-gavel" />Transaction</a>

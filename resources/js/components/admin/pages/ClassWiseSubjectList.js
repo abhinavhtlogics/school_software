@@ -17,16 +17,32 @@ class ClassWiseSubjectList extends Component {
       messgae:'',
       remark:'',
       courseName:'',
-      ajaxdata:[]
+      ajaxdata:[],
+      subDesc:[]
      
     };
    
+    this.getClassWiseSubDesc = this.getClassWiseSubDesc.bind(this);
    
-   
+
+ 
     
   
   }
- 
+  getClassWiseSubDesc(){
+    axios.get(`http://127.0.0.1:8000/api/class_wise_subject_desc`)  
+    .then(res => {  
+     console.log(res.data);
+     if(res.data.status == true){
+        this.setState({ subDesc:res.data.data});
+        //window.location.href = "http://127.0.0.1:8000/users";
+
+        console.log(this.state.ajaxdata);
+     }
+    
+    
+    })  
+}
 
   componentDidMount() {
  
@@ -36,7 +52,7 @@ class ClassWiseSubjectList extends Component {
     .then(res => {  
      console.log(res.data);
      if(res.data.status == true){
-        this.setState({ ajaxdata:res.data.data});
+        this.setState({ ajaxdata:res.data.data},this.getClassWiseSubDesc);
         //window.location.href = "http://127.0.0.1:8000/users";
 
         console.log(this.state.ajaxdata);
@@ -126,21 +142,32 @@ HaderPart end
                       <tbody>
                       {this.state.ajaxdata.map( (item, key) => {
                                 return (
+
+                                    
+                                    
                         <tr>
                           <td>{ item.courseName}</td>
                           <td>{ item.className}</td>
-                          <td>{ item.sectionName}</td>
+                          <td>{ item.sectionName} </td>
                           <td>
-                            <span className="badge bg-green-soft text-green">English</span>
-                            <span className="badge bg-red-soft text-red">Hindi</span>
-                            <span className="badge bg-purple-soft text-purple">Maths</span>
-                            <span className="badge bg-red-soft text-red">Science</span>
-                            <span className="badge bg-red-soft text-red">Social Science</span>
+                          {this.state.subDesc.map( (item2, key2) => {
+                                return ( 
+                               
+                                    this.state.subDesc[key2].csId == this.state.ajaxdata[key].id ?
+                                
+                               
+                            <span className={`badge ${this.state.subDesc[key2].compulsary == 1 ? 'bg-red-soft  text-red' :this.state.subDesc[key2].compulsary == 1 ? 'bg-green-soft text-green' : 'bg-purple-soft  text-purple'}`}>{item2.subjectName}</span>
+                                   :null
+                                   
+                            )
+                        })}
                           </td>
                           <td><a className="btn" href={`/class_wise_subject_edit/${item.id}`}><i className="fa fa-edit" aria-hidden="true" /></a>
-                            <a className="btn" href="#"><i className="fa fa-trash" aria-hidden="true" /></a></td>
+                            <a className="btn" href={`/api/class_wise_subject_delete/${item.id}`}><i className="fa fa-trash" aria-hidden="true" /></a></td>
                         </tr>
+                        
                        )
+                
                     })}
                       </tbody>
                     </table>

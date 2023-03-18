@@ -19429,7 +19429,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .form-own .Schedule-subject .bg-padd label{color: #505050;}
 .form-own .Schedule-table .form-check{padding: 0 0 0 15px;}
 .form-own .Schedule-table .form-check-input{position: relative; margin: 3px 0 0 !important;}
-.form-own .Schedule-table .form-control{height: 34px; max-width: 70px;}
+.form-own .Schedule-table .form-control{height: 34px; max-width: 90px;}
 .form-own .select-grid-bg{background: #dee3e8; margin: 10px -20px -10px; padding: 5px 19px 8px;}  
 .form-own.Create-Exam-Date .select-grid-bg{margin: 0 0 -10px;}  
 .form-own.Create-Exam-Date .Schedule-table .input-daterange-timepicker{max-width: 150px;}

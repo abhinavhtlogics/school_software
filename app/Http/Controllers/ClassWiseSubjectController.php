@@ -25,6 +25,11 @@ class ClassWiseSubjectController extends Controller
         // print '<pre>';
        // echo "<br>";
 
+       if(empty($req->input('sectionName'))){
+        $sectionNames = array(5000);
+       }
+
+
 
        foreach($sectionNames as $sectionName){
         $values = array('sectionId' => $sectionName,'classId'=>$classId,'courseId'=>$courseId);
@@ -69,7 +74,71 @@ class ClassWiseSubjectController extends Controller
        }
     
        }
-       return ['status'=>True, 'message'=> 'Data Added'];
+       return ['status'=>True, 'message'=> 'Class wise Subject Added'];
+        
+    }
+
+
+
+    public function edit_class_wise_sub_process(Request $req){
+       
+        $sectionNames=$req->input('sectionName');
+        $classId=$req->input('classId');
+        $courseId=$req->input('courseId');
+        $editId=$req->input('editId');
+       
+
+        // print_r($sectionNames);
+        // print '<pre>';
+       // echo "<br>";
+       DB::table('class_wise_sub_desc')->where('csId', $editId)->delete();
+
+       
+       $subjectIds=$req->input('subjectId');
+       $compulsary=$req->input('compulsary');
+       $elective=$req->input('elective');
+       $priority=$req->input('priority');
+       $addition=$req->input('addition');
+        
+        
+
+      
+
+        $values = array('sectionId' => $sectionNames,'classId'=>$classId,'courseId'=>$courseId);
+
+            // echo count($data);
+           
+    
+           DB::table('classWiseSubject')->where('id', $editId)->update($values);
+     
+        //    echo $last_id;
+
+
+        // delete previous data
+       
+       
+
+              
+         
+ 
+           
+     
+               
+                for($i=0;$i<count($subjectIds); $i++){
+                    $data= array('subjectId' => $subjectIds[$i],'compulsary'=>$compulsary[$i],'addition'=>$addition[$i],'elective'=>$elective[$i],'csId'=>$editId);
+                    DB::table('class_wise_sub_desc')->insert($data);
+                }
+             
+             
+    //    }  
+     
+    //    else{
+
+    //     return ['status'=>False, 'message'=>'section already added'];
+    //    }
+    
+     //  }
+       return ['status'=>True, 'message'=> 'Class wise Subject Edited'];
         
     }
 
@@ -80,6 +149,27 @@ class ClassWiseSubjectController extends Controller
         ->join('course_master', 'classwisesubject.courseId', '=', 'course_master.courseId')
         ->join('class_master', 'classwisesubject.classId', '=', 'class_master.classId')
         ->join('section_master', 'classwisesubject.sectionId', '=', 'section_master.sectionId')
+         ->select('*')
+         ->get();
+ 
+        
+        
+      
+        // echo count($data);
+ 
+         if(count($data) > 0){
+             return ['status'=>True, 'data'=> $data];
+         }
+         else{
+             return ['status'=>False, 'data'=>$data];
+         }
+    }
+
+
+    public function class_wise_subject_desc(){
+        $data=array();
+        $data= DB::table('class_wise_sub_desc')
+        ->join('subject_master', 'class_wise_sub_desc.subjectId', '=', 'subject_master.subjectId')
          ->select('*')
          ->get();
  
@@ -102,6 +192,7 @@ class ClassWiseSubjectController extends Controller
         ->join('course_master', 'classwisesubject.courseId', '=', 'course_master.courseId')
         ->join('class_master', 'classwisesubject.classId', '=', 'class_master.classId')
         ->join('section_master', 'classwisesubject.sectionId', '=', 'section_master.sectionId')
+        
          ->select('*')
          ->where('classwisesubject.id',$id)
          ->get();
@@ -138,6 +229,17 @@ class ClassWiseSubjectController extends Controller
          else{
              return ['status'=>False, 'data'=>$data];
          }
+    }
+
+
+
+
+    public function class_wise_sub_delete($id){
+       
+        DB::table('classWiseSubject')->where('id', $id)->delete();
+       
+      return redirect('/class_wise_subject_list');
+        
     }
 
 

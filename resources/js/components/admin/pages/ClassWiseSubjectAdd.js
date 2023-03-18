@@ -186,9 +186,26 @@ class ClassWiseSubjectAdd extends Component {
 
         var array= [...this.state.compulsary_arr]
         var array2= [...this.state.compulsary_arr_bool]
+
+
+        var array3= [...this.state.elective_arr]
+        var array4= [...this.state.elective_arr_bool]
+
+
+        var array5= [...this.state.additional_arr]
+        var array6= [...this.state.additional_arr_bool]
+
+
         if(event.target.checked){
           array[key] = 1;
           array2[key] = true;
+
+          array3[key] = 0;
+          array4[key] = false;
+
+          array5[key] = 0;
+          array6[key] = false;
+
         }
         else{
           array[key] = 0;
@@ -198,6 +215,15 @@ class ClassWiseSubjectAdd extends Component {
         
         this.setState({compulsary_arr: array});
         this.setState({compulsary_arr_bool: array2});
+
+
+        this.setState({elective_arr: array3});
+        this.setState({elective_arr_bool: array4});
+
+
+        this.setState({additional_arr: array5});
+        this.setState({additional_arr_bool: array6});
+        
         
        
       }
@@ -210,9 +236,24 @@ class ClassWiseSubjectAdd extends Component {
         var array= [...this.state.additional_arr]
         var array2= [...this.state.additional_arr_bool]
 
+
+
+        var array3= [...this.state.compulsary_arr]
+        var array4= [...this.state.compulsary_arr_bool]
+
+
+        var array5= [...this.state.elective_arr]
+        var array6= [...this.state.elective_arr_bool]
+
         if(event.target.checked){
           array[key] = 1;
           array2[key] = true;
+
+          array3[key] = 0;
+          array4[key] = false;
+
+          array5[key] = 0;
+          array6[key] = false;
         }
         else{
           array[key] = 0;
@@ -222,6 +263,13 @@ class ClassWiseSubjectAdd extends Component {
         
         this.setState({additional_arr: array});
         this.setState({additional_arr_bool: array2});
+
+
+        this.setState({compulsary_arr: array3});
+        this.setState({compulsary_arr_bool: array4});
+
+        this.setState({elective_arr: array5});
+        this.setState({elective_arr_bool: array6});
         
         console.log(event.target);
         console.log(this.state.additional_arr);
@@ -235,12 +283,9 @@ class ClassWiseSubjectAdd extends Component {
 
         var array= [...this.state.priority_arr]
 
-        if(event.target.checked){
-          array[key] = 1;
-        }
-        else{
-          array[key] = 0;
-        }
+       
+          array[key] = event.target.value;
+      
         
         
         this.setState({priority_arr: array});
@@ -278,9 +323,22 @@ class ClassWiseSubjectAdd extends Component {
         var array= [...this.state.elective_arr]
         var array2= [...this.state.elective_arr_bool]
 
+        var array3= [...this.state.compulsary_arr]
+        var array4= [...this.state.compulsary_arr_bool]
+
+        var array5= [...this.state.additional_arr]
+        var array6= [...this.state.additional_arr_bool]
+
         if(event.target.checked){
           array[key] = 1;
           array2[key] = true;
+
+
+          array3[key] = 0;
+          array4[key] = false;
+
+          array5[key] = 0;
+          array6[key] = false;
         }
         else{
           array[key] = 0;
@@ -291,6 +349,15 @@ class ClassWiseSubjectAdd extends Component {
         this.setState({elective_arr: array});
         
         this.setState({elective_arr_bool: array2});
+
+        this.setState({compulsary_arr: array3});
+        
+        this.setState({compulsary_arr_bool: array4});
+
+
+        this.setState({additional_arr: array5});
+        
+        this.setState({additional_arr_bool: array6});
         
         
         console.log(event.target);
@@ -330,7 +397,7 @@ subAdd(event){
   
     var additionalArray = this.state.additional_arr.slice();    
     additionalArray.push(0);   
-    this.setState({additional_arr:comArray})
+    this.setState({additional_arr:additionalArray})
   
     console.log(this.state.additional_arr);
   
@@ -587,7 +654,7 @@ HaderPart end
               <div className="col-xl-12 col-xxl-12">
                 <div className="card">
                   {/*div class="card-header"><h4 class="card-title">All Class List</h4></div*/}
-                  <div className="card-body">
+                  <div className="card-body" style={{minHeight:'500px'}}>
                     <div className="basic-form form-own">
                       <form onSubmit={this.formSubmit}>
                         <div className="form-row">
@@ -659,7 +726,8 @@ HaderPart end
         {this.state.showMidSec ? 
           <h5>Select Subjects from the list showing below &amp; then Click Add Button</h5>
         : null}
-          <div className="Schedule-subject">
+        {this.state.showMidSec ?
+          <div className="Schedule-subject" >
           {this.state.showMidSec ? 
             <div className="form-checkbox-grid">
             {this.state.subjectList.map( (item, key) => {
@@ -716,6 +784,7 @@ HaderPart end
         </div>
         :null }
         </div>
+        :null}
         {/*/ form-row */}
         <br/>
         <br/>

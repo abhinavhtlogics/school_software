@@ -142,6 +142,8 @@ class ClassWiseSubjectEdit extends Component {
          for (let i = 0; i < res.data.data.length; i++) {
             if(res.data.data[i].sectionId == this.state.tempSectionId){
                 this.state.sectionListVal[i] = true;
+               
+                
             }
             else{
                 this.state.sectionListVal[i] = false;
@@ -163,15 +165,39 @@ class ClassWiseSubjectEdit extends Component {
         var index=event.target.attributes.getNamedItem('data-index').value;
 
         console.log(index);
+
+       
           if(event.target.checked){
-            var newArray = this.state.section_arr.slice();    
-        newArray.push(event.target.value);   
-        this.setState({section_arr:newArray})
-           this.state.sectionListVal[index]= true ;
-           console.log(this.state.section_arr);
+
+            console.log(this.state.sectionListVal.length);
+            for (let i = 0; i < this.state.sectionListVal.length; i++) {
+
+                if(index == i){
+                    console.log(index)
+                    
+                     
+                    this.state.section_arr[0]= event.target.value ;
+                       this.state.sectionListVal[index]= true ;
+                       this.state.tempSectionId=event.target.value
+                }
+               
+                  else{
+                    var newArray2 = [...this.state.section_arr]; // make a separate copy of the array
+
+                    
+                      newArray2.splice(index, 1);
+                      this.setState({section_arr: newArray2});
+                      this.state.sectionListVal[i]= false ;
+                            }
+                   
+                  
+            
+            }
+            
           }
           else{
 
+           
             var newArray2 = [...this.state.section_arr]; // make a separate copy of the array
 
             if (index !== -1) {
@@ -180,9 +206,11 @@ class ClassWiseSubjectEdit extends Component {
                     }
             this.state.sectionListVal[index]= false ;
 
-            console.log(this.state.section_arr);
+          
           }
-      
+
+          console.log(this.state.section_arr);
+        
       }
       selectAll(event){
         console.log('testing');
@@ -239,10 +267,19 @@ class ClassWiseSubjectEdit extends Component {
             console.log("legth");
             console.log(res.data.data.length);
             var newArray = this.state.subject_arr.slice();
+            var newArrayId = this.state.subjectId_arr.slice();
             var newArray2 = this.state.compulsary_arr_bool.slice(); 
+            var newArray20 = this.state.compulsary_arr.slice(); 
             var newArray3 = this.state.elective_arr_bool.slice(); 
             var newArray4 = this.state.additional_arr_bool.slice(); 
+
+            var newArray30 = this.state.elective_arr.slice(); 
+            var newArray40 = this.state.additional_arr.slice(); 
+            var newArray100 = this.state.priority_arr.slice(); 
             var newArray5 = this.state.subjectChecked.slice(); 
+            var newArray55 = this.state.section_arr.slice(); 
+
+            console.log(this.state.subjectList.length);
            
             for (let j = 0; j < this.state.subjectList.length; j++) {
                 newArray5.push(false); 
@@ -252,44 +289,73 @@ class ClassWiseSubjectEdit extends Component {
             for (let i = 0; i < res.data.data.length; i++) {
 
                 console.log(res.data.data[i].compulsary);
-                var index = this.state.subjectList.indexOf(res.data.data[i].subjectName)
-                this.state.subjectChecked[index]=true;
+                
+                for (let k = 0; k < this.state.subjectList.length; k++) {
+                          if(this.state.subjectList[k].subjectName == res.data.data[i].subjectName){
+
+                            var index = k;
+                            break;
+                          }else{
+                            index=-1;
+                          }
+
+                
+                }
+                console.log("index");
+                console.log(index);
+                newArray5[index]=true;
                 newArray.push(res.data.data[i].subjectName); 
+                newArrayId.push(res.data.data[i].subjectId); 
+                newArray55.push(res.data.data[i].subjectId); 
+                newArray100.push(res.data.data[i].priority); 
                 if(res.data.data[i].compulsary == 1){
                    
                     newArray2.push(true); 
+                    newArray20.push(1); 
                 } 
                 else{
                     
                     newArray2.push(false); 
+                    newArray20.push(0); 
                 }
 
 
                 if(res.data.data[i].elective == 1){
                    
                     newArray3.push(true); 
+                    newArray30.push(1); 
                 } 
                 else{
                     
                     newArray3.push(false); 
+                    newArray30.push(0); 
                 }
 
                 if(res.data.data[i].addition == 1){
                    
                     newArray4.push(true); 
+                    newArray40.push(1); 
                 } 
                 else{
                     
                     newArray4.push(false); 
+                    newArray40.push(0); 
                 }
                 console.log(newArray2);
                 
             }
+            this.setState({subjectChecked:newArray5})
             console.log(newArray2);
             this.setState({subject_arr:newArray})
+            this.setState({subjectId_arr:newArrayId})
+           // this.setState({section_arr:newArray55})
             this.setState({compulsary_arr_bool:newArray2})
+            this.setState({compulsary_arr:newArray20})
             this.setState({elective_arr_bool:newArray3})
-            this.setState({additional_arr_bool:newArray2})
+            this.setState({elective_arr:newArray30})
+            this.setState({additional_arr_bool:newArray4})
+            this.setState({additional_arr:newArray40})
+            this.setState({priority_arr:newArray100})
             console.log(this.state.compulsary_arr_boo4);
 
           
@@ -365,12 +431,11 @@ class ClassWiseSubjectEdit extends Component {
 
         var array= [...this.state.priority_arr]
 
-        if(event.target.checked){
-          array[key] = 1;
-        }
-        else{
-          array[key] = 0;
-        }
+        
+          array[key] = event.target.value;
+       
+          
+      
         
         
         this.setState({priority_arr: array});
@@ -437,6 +502,11 @@ subAdd(event){
 
 
   if(checked){
+
+    var newArray10 = this.state.subjectChecked.slice();    
+   newArray10[event.target.attributes.getNamedItem('data-index').value] = true; 
+    this.setState({subjectChecked:newArray10})
+
     var newArray = this.state.subject_arr.slice();    
     newArray.push(event.target.value);   
     this.setState({subject_arr:newArray})
@@ -460,7 +530,7 @@ subAdd(event){
   
     var additionalArray = this.state.additional_arr.slice();    
     additionalArray.push(0);   
-    this.setState({additional_arr:comArray})
+    this.setState({additional_arr:additionalArray})
   
     console.log(this.state.additional_arr);
   
@@ -484,6 +554,13 @@ subAdd(event){
     console.log(this.state.priority_arr);
   }
 else{
+
+
+    var newArray10 = this.state.subjectChecked.slice();    
+   newArray10[event.target.attributes.getNamedItem('data-index').value] = false; 
+    this.setState({subjectChecked:newArray10})
+
+
 
   var newArray = [...this.state.subject_arr]; // make a separate copy of the array
 var index = newArray.indexOf(event.target.value)
@@ -592,23 +669,25 @@ this.setState({showEnd:true})
    else{
   
    
-    axios.post(`http://127.0.0.1:8000/api/add_class_wise_sub_process`, {
+    axios.post(`http://127.0.0.1:8000/api/edit_class_wise_sub_process`, {
        
-        sectionName:this.state.section_arr,
+        sectionName:this.state.tempSectionId,
         classId:this.state.classId,
         courseId:this.state.courseId,
         subjectId:this.state.subjectId_arr,
         compulsary:this.state.compulsary_arr,
         elective:this.state.elective_arr,
         priority:this.state.priority_arr,
-        addition:this.state.additional_arr
+        addition:this.state.additional_arr,
+        editId:window.location.href.split('/')[4]
+
 
       })  
     .then(res => {  
      console.log(res.data);
      if(res.data.status == true){
         this.setState({ showError: false,showSuccess:true,message:res.data.message});
-       window.location.href = "http://127.0.0.1:8000/subject_list";
+       window.location.href = "http://127.0.0.1:8000/class_wise_subject_list";
      }
     
      if(res.data.status == false){
@@ -646,6 +725,7 @@ componentDidMount() {
                     this.setState({ courseId: res.data.data[0].courseId },this.getClasslist_load);
                     this.setState({ classId: res.data.data[0].classId,tempSectionId:res.data.data[0].sectionId },this.getSectionlistLoad);
                     this.setState({ showMidSec:true,showEnd:true },this.getSubject_load);
+                    this.state.section_arr[0]=this.state.tempSectionId
                 }
             })
 
@@ -864,7 +944,7 @@ HaderPart end
         {/*/ form-row */}
         <br/>
         {this.state.showEnd ? 
-        <input type="submit" className="btn btn-primary" defaultValue="Save" onClick={this.formSubmit} />
+        <input type="button" className="btn btn-primary" defaultValue="Update" onClick={this.formSubmit} />
        
     
 
@@ -876,31 +956,34 @@ HaderPart end
                                              
                                                    {this.state.showSuccess ?  <div className="success">{this.state.message}</div> : null }
                                              
-                                               </div>
+                                                   </div>
        
       
-                        </div>
-						
-                 
-                     
-                        </div>
-                    </form>
-                  </div>  
-                </div>
-				
-            </div>
-        </div>
-        {/***********************************
-          Content body end
+       </div>
+       
+
     
-          {/***********************************
-            Footer Copyright start
-        ************************************/}
+       </div>
+   </form>
+ </div>  
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+{/***********************************
+Content body end
+
+{/***********************************
+Footer Copyright start
+************************************/}
 
 <Copyright />
 
 {/***********************************
-  Footer Copyright end
+Footer Copyright end
 ************************************/}
 
 
@@ -910,9 +993,6 @@ HaderPart end
 {/***********************************
 Main wrapper end
 ************************************/}
-</div>
-</div>
-</div>
 </div>
     );
   }
